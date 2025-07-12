@@ -151,9 +151,9 @@ export default function HomePage() {
               ))}
 
               <motion.button
-                onClick={async() => {
-                    await fetch("/api/auth/logout", { method: "POST" }); 
-                     router.push("/login");
+                onClick={() => {
+                  document.cookie = "token=; path=/; expires=Thu, 01 Jan 1970 00:00:01 GMT;"
+                  router.push("/login")
                 }}
                 className="bg-gradient-to-r from-red-600 to-red-500 hover:from-red-500 hover:to-red-400 text-white px-6 py-2 rounded-lg font-gaming font-bold transition-all duration-300 transform hover:scale-105 hover:shadow-lg border border-red-500/30"
                 whileHover={{ scale: 1.05 }}
