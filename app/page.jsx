@@ -1,13 +1,13 @@
-// "use client";
+"use client"
 
-import { useEffect, useState } from "react";
-import { useAuth } from "@/contexts/AuthContext";
-import { useRouter } from "next/navigation";
-import { motion } from "framer-motion";
-import { Search, Filter, Star, Users, Award } from "lucide-react";
-import ProfileCard from "@/components/ProfileCard";
-import SearchFilters from "@/components/SearchFilters";
-import LoadingSpinner from "@/components/LoadingSpinner";
+import { useEffect, useState } from "react"
+import { useAuth } from "@/contexts/AuthContext"
+import { useRouter } from "next/navigation"
+import { motion, AnimatePresence } from "framer-motion"
+import { Search, Filter, Star, Users, Award, Zap, Target, Trophy } from "lucide-react"
+import ProfileCard from "@/components/ProfileCard"
+import SearchFilters from "@/components/SearchFilters"
+import LoadingSpinner from "@/components/LoadingSpinner"
 
 export default function HomePage() {
   const { user, loading } = useAuth()
@@ -27,7 +27,7 @@ export default function HomePage() {
     if (!loading && !user) {
       router.push("/login")
     }
-  }, [user, loading, router]);
+  }, [user, loading, router])
 
   useEffect(() => {
     fetchProfiles()
@@ -121,39 +121,39 @@ export default function HomePage() {
         className="relative z-10 bg-cyber-dark/80 backdrop-blur-md border-b border-neon-purple/30"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <div className="flex items-center space-x-4">
-              <h1 className="text-2xl font-bold text-gray-900">
-                Skill Swap Platform
-              </h1>
-            </div>
-            <nav className="flex items-center space-x-4">
-              <button
-                onClick={() => router.push("/profile")}
-                className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium"
-              >
-                Profile
-              </button>
-              <button
-                onClick={() => router.push("/requests")}
-                className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium"
-              >
-                Requests
-              </button>
-              <button
-                onClick={() => router.push("/leaderboard")}
-                className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium"
-              >
-                Leaderboard
-              </button>
-              <button
-                onClick={async () => {
-                  try {
+          <div className="flex justify-between items-center h-20">
+            <motion.div className="flex items-center space-x-4" whileHover={{ scale: 1.05 }}>
+              <div className="w-10 h-10 bg-gradient-to-r from-neon-pink to-neon-blue rounded-lg flex items-center justify-center">
+                <Zap className="w-6 h-6 text-white" />
+              </div>
+              <h1 className="text-2xl font-cyber font-bold neon-text">SKILL NEXUS</h1>
+            </motion.div>
+
+            <nav className="hidden md:flex items-center space-x-6">
+              {[
+                { name: "Profile", path: "/profile", icon: Target },
+                { name: "Requests", path: "/requests", icon: Users },
+                { name: "Leaderboard", path: "/leaderboard", icon: Trophy },
+              ].map((item, index) => (
+                <motion.button
+                  key={item.name}
+                  onClick={() => router.push(item.path)}
+                  className="flex items-center space-x-2 text-gray-300 hover:text-neon-pink px-4 py-2 rounded-lg transition-all duration-300 hover:bg-cyber-purple/20 border border-transparent hover:border-neon-pink/30"
+                  whileHover={{ scale: 1.05, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                >
+                  <item.icon className="w-4 h-4" />
+                  <span className="font-gaming font-medium">{item.name}</span>
+                </motion.button>
+              ))}
+
+              <motion.button
+                onClick={async() => {
                     await fetch("/api/auth/logout", { method: "POST" }); 
-                    router.push("/login");
-                  } catch (err) {
-                    console.error("Logout failed", err);
-                  }
+                     router.push("/login");
                 }}
                 className="bg-gradient-to-r from-red-600 to-red-500 hover:from-red-500 hover:to-red-400 text-white px-6 py-2 rounded-lg font-gaming font-bold transition-all duration-300 transform hover:scale-105 hover:shadow-lg border border-red-500/30"
                 whileHover={{ scale: 1.05 }}
