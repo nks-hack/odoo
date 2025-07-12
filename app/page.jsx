@@ -8,6 +8,7 @@ import { Search, Filter, Star, Users, Award } from "lucide-react";
 import ProfileCard from "@/components/ProfileCard";
 import SearchFilters from "@/components/SearchFilters";
 import LoadingSpinner from "@/components/LoadingSpinner";
+import axios from "axios";
 
 export default function HomePage() {
   const { user, loading } = useAuth();
@@ -27,7 +28,7 @@ export default function HomePage() {
     if (!loading && !user) {
       router.push("/login");
     }
-  }, [user, loading, router]);
+  }, [user, loading]);
 
   useEffect(() => {
     fetchProfiles();
@@ -133,10 +134,12 @@ export default function HomePage() {
               <button
                 onClick={async () => {
                   try {
-                    await fetch("/api/auth/logout", { method: "POST" }); 
+                    await axios.post("/api/auth/logout"); 
+                    // await logout();
                     router.push("/login");
+                    router.refresh();
                   } catch (err) {
-                    console.error("Logout failed", err);
+                    console.error("Logout failed", err.message);
                   }
                 }}
                 className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg text-sm font-medium"
