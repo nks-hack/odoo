@@ -1,231 +1,203 @@
-<<<<<<< HEAD
-# odoo
-
-PS 1- Skill Swap Platform
-
-Team Members: 
-1) Abhishek Dudhpachare - abhishek.dudhpachare@walchandsangli.ac.in
-2) Atharva Pandey - atharva2004pandey@gmail.com
-3) Mihir Pusadkar - mpusadkar633@gmail.com
-4) Viraj Gotmare - virajchronos@gmai.com
-=======
 # Skill Swap Platform
 
-A complete, production-ready skill exchange platform where users can connect, learn, and grow together through skill swapping.
+A full-featured platform where people connect, learn, and grow by exchanging skills. Built for curious learners, makers, and mentors.
 
-## 🚀 Features
+### Team Members
 
-### ✅ Authentication & Security
-- JWT-based authentication with HTTP-only cookies
-- Secure password hashing with bcrypt
-- Protected routes and API endpoints
+* Abhishek Dudhpachare – [abhishek.dudhpachare@walchandsangli.ac.in](mailto:abhishek.dudhpachare@walchandsangli.ac.in)
+* Atharva Pandey – [atharva2004pandey@gmail.com](mailto:atharva2004pandey@gmail.com)
+* Mihir Pusadkar – [mpusadkar633@gmail.com](mailto:mpusadkar633@gmail.com)
+* Viraj Gotmare – [virajchronos@gmai.com](mailto:virajchronos@gmai.com)
 
-### ✅ User Profiles
-- Complete profile management
-- Skill offerings and learning goals
-- Availability scheduling
-- Profile photo uploads via Cloudinary
-- Public/private profile toggle
+---
+## Demo Video Link - https://drive.google.com/file/d/1CVffGBL9_sq08l3-T4UqxzI73v0ApVEn/view?usp=sharing
+---
+## What It Does
 
-### ✅ Skill Discovery
-- Browse public profiles
-- Advanced search and filtering
-- Skill-based matching
-- Availability filtering
+Users list what they can teach and what they want to learn. They find matches, chat, set up learning sessions, and grow together. There’s a built-in feedback loop, a gamified experience, and a slick interface across devices.
 
-### ✅ Swap Requests
-- Send skill swap requests
-- Accept/reject/cancel requests
-- Real-time notifications
-- Message system
+---
 
-### ✅ Co-learning Rooms
-- Video chat integration ready
-- Collaborative whiteboard
-- Real-time session management
-- Session recording capabilities
+## Core Features
 
-### ✅ Feedback & Gamification
-- 5-star rating system
-- Written feedback
-- Points and badges system
-- Achievement unlocking with animations
+### Authentication & Security
 
-### ✅ Leaderboard
-- Real-time rankings
-- Points-based scoring
-- Badge display
-- User statistics
+* JWT authentication with secure, HTTP-only cookies
+* Passwords hashed with bcrypt
+* All sensitive routes locked down
 
-### ✅ UI/UX Excellence
-- Responsive design for all devices
-- Smooth animations with Framer Motion
-- Modern Tailwind CSS styling
-- Confetti celebrations
-- Loading states and error handling
+### User Profiles
 
-## 🛠️ Tech Stack
-
-- **Frontend**: Next.js 14, React, Tailwind CSS, Framer Motion
-- **Backend**: Next.js API Routes, Node.js
-- **Database**: MongoDB with Mongoose
-- **Authentication**: JWT with HTTP-only cookies
-- **File Upload**: Cloudinary
-- **Real-time**: Socket.IO ready
-- **Video**: Daily.co integration ready
-- **Animations**: Framer Motion, Canvas Confetti
-
-## 📦 Installation
-
-1. **Clone the repository**
-   \`\`\`bash
-   git clone <repository-url>
-   cd skill-swap-platform
-   \`\`\`
-
-2. **Install dependencies**
-   \`\`\`bash
-   npm install
-   \`\`\`
-
-3. **Set up environment variables**
-   \`\`\`bash
-   cp .env.example .env.local
-   \`\`\`
-   
-   Fill in your environment variables:
-   - MongoDB connection string
-   - JWT secret key
-   - Cloudinary credentials
-   - Socket.IO server URL (optional)
-
-4. **Run the development server**
-   \`\`\`bash
-   npm run dev
-   \`\`\`
-
-5. **Open your browser**
-   Navigate to `http://localhost:3000`
-
-## 🌐 Deployment
-
-### Frontend (Vercel)
-1. Connect your GitHub repository to Vercel
-2. Set environment variables in Vercel dashboard
-3. Deploy automatically on push
-
-### Database (MongoDB Atlas)
-1. Create a MongoDB Atlas cluster
-2. Get connection string
-3. Add to environment variables
-
-### File Storage (Cloudinary)
-1. Create Cloudinary account
-2. Get API credentials
-3. Add to environment variables
-
-## 📁 Project Structure
-
-\`\`\`
-skill-swap-platform/
-├── app/                    # Next.js app directory
-│   ├── api/               # API routes
-│   ├── (pages)/           # Page components
-│   ├── globals.css        # Global styles
-│   └── layout.jsx         # Root layout
-├── components/            # Reusable components
-├── contexts/              # React contexts
-├── lib/                   # Utility libraries
-├── models/                # Database models
-├── public/                # Static assets
-└── README.md
-\`\`\`
-
-## 🔧 Environment Variables
-
-Create a `.env.local` file with the following variables:
-
-\`\`\`env
-MONGODB_URI=mongodb+srv://username:password@cluster.mongodb.net/skillswap
-JWT_SECRET=your-super-secret-jwt-key-here
-CLOUDINARY_CLOUD_NAME=your-cloudinary-cloud-name
-CLOUDINARY_API_KEY=your-cloudinary-api-key
-CLOUDINARY_API_SECRET=your-cloudinary-api-secret
-NEXT_PUBLIC_SOCKET_URL=http://localhost:3001
-NODE_ENV=development
-\`\`\`
-
-## 🎯 Key Features Explained
-
-### Authentication Flow
-- Users sign up with email/password
-- JWT tokens stored in HTTP-only cookies
-- Automatic token validation on protected routes
+* Add skills, learning goals, availability
+* Upload profile photo (Cloudinary)
+* Choose public or private visibility
 
 ### Skill Matching
-- Users specify skills they can teach and want to learn
-- Smart matching algorithm suggests compatible users
-- Filter by availability, location, and skills
 
-### Real-time Features
-- Socket.IO integration for live updates
-- Real-time request notifications
-- Live leaderboard updates
+* Smart search across skills, availability, interests
+* Skill-based suggestions
+* Profile filtering with fast response
 
-### Gamification System
-- Points awarded for completed swaps and feedback
-- Badges unlock at different milestones
-- Leaderboard rankings with confetti celebrations
+### Swap Requests
 
-### Video Integration
-- Ready for Daily.co integration
-- Collaborative whiteboard with Excalidraw
-- Session recording capabilities
+* Send, accept, reject, cancel
+* Instant notifications
+* Built-in messaging
 
-## 🚀 Production Considerations
+### Co-learning Rooms
 
-### Security
-- Environment variables for sensitive data
-- HTTP-only cookies for JWT storage
-- Input validation and sanitization
-- Rate limiting (recommended)
+* Video-ready setup
+* Collaborative whiteboard
+* Live session tracking
+* Recording support
 
-### Performance
-- Image optimization with Cloudinary
-- Lazy loading for components
-- Database indexing for queries
-- CDN for static assets
+### Feedback & Gamification
 
-### Scalability
-- Modular component architecture
-- Efficient database queries
-- Caching strategies (Redis recommended)
-- Load balancing for high traffic
+* Rate your partner, leave comments
+* Earn points, unlock badges
+* Celebratory animations that feel good
 
-## 🤝 Contributing
+### Leaderboard
 
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Add tests if applicable
-5. Submit a pull request
+* Tracks top users by impact
+* Points, badges, stats, rankings – live
 
-## 📄 License
+### Clean UI & Experience
 
-This project is licensed under the MIT License.
+* Tailwind CSS for a responsive layout
+* Smooth animations (Framer Motion)
+* Fast loading, clean transitions
+* Confetti. Because progress deserves celebration
 
-## 🆘 Support
+---
 
-For support and questions:
-- Create an issue in the repository
-- Check the documentation
-- Review the code comments
+## Tech Stack
 
-## 🎉 Acknowledgments
+* **Frontend**: Next.js 14, React, Tailwind CSS
+* **Backend**: Next.js API Routes (Node.js)
+* **Database**: MongoDB (Mongoose)
+* **Auth**: JWT with HTTP-only cookies
+* **Real-time**: Socket.IO
+* **Media**: Cloudinary
+* **Animations**: Framer Motion, Canvas Confetti
 
-- Next.js team for the amazing framework
-- Tailwind CSS for the utility-first CSS
-- Framer Motion for smooth animations
-- MongoDB for the flexible database
-- Cloudinary for image management
->>>>>>> master
+---
+
+## Setup Guide
+
+1. Clone the repo
+
+```bash
+git clone https://github.com/nks-hack/odoo.git
+cd skill-swap-platform
+```
+
+2. Install packages
+
+```bash
+npm install
+```
+
+3. Create your environment config
+
+```bash
+cp .env.example .env.local
+```
+
+Fill in your variables:
+
+* MongoDB URI
+* JWT secret
+* Cloudinary credentials
+* Socket server URL
+
+4. Run the app
+
+```bash
+npm run dev
+```
+
+Then open `http://localhost:3000` in your browser.
+
+---
+
+## Deployment Tips
+
+**Frontend (Vercel)**
+
+* Link repo, set env vars, deploy
+
+**Database (MongoDB Atlas)**
+
+* Create a cluster, plug in the URI
+
+**Media Storage (Cloudinary)**
+
+* Create account, grab API keys
+
+---
+
+## Project Structure
+
+```
+skill-swap-platform/
+├── app/              # Next.js app structure
+│   ├── api/          # API routes
+│   ├── (pages)/      # Page components
+│   ├── globals.css   # Global styles
+│   └── layout.jsx    # Root layout
+├── components/       # Reusable UI
+├── contexts/         # Global state
+├── lib/              # Helpers and utils
+├── models/           # Mongoose models
+├── public/           # Static assets
+└── README.md
+```
+
+---
+
+## Environment Variables (`.env.local`)
+
+```
+MONGODB_URI=mongodb+srv://...
+JWT_SECRET=...
+CLOUDINARY_CLOUD_NAME=...
+CLOUDINARY_API_KEY=...
+CLOUDINARY_API_SECRET=...
+NEXT_PUBLIC_SOCKET_URL=http://localhost:3001
+NODE_ENV=development
+```
+
+---
+
+## Under the Hood
+
+### Auth Flow
+
+* Users log in with email and password
+* JWTs stored in secure cookies
+* Each protected route checks token validity
+
+### Matching Logic
+
+* Skills offered and wanted are cross-referenced
+* Availability helps prioritize matches
+* Location and tags can help refine
+
+### Real-Time Sync
+
+* Socket.IO pushes request and leaderboard updates
+* Message and session notifications land instantly
+
+### Gamification Engine
+
+* Complete swaps, get points
+* Ratings drive your rep
+* Badges and confetti make it fun
+
+### Video Sessions
+
+* Whiteboard (Excalidraw) lets ideas flow
+* Sessions can be recorded
+
+
